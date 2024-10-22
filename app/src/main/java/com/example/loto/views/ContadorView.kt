@@ -21,25 +21,25 @@ import com.example.loto.viewModels.ContadorViewModel
 
 
 @Composable
-fun Contador(viewModel: ContadorViewModel){
+fun Contador(viewModel: ContadorViewModel) {
     Box(
-       contentAlignment = Alignment.Center,
+        contentAlignment = Alignment.Center,
         modifier = Modifier.fillMaxWidth()
-    ){
+    ) {
         Text(
             text = viewModel.contador.value.toString(),
             fontWeight = FontWeight.Bold,
             fontSize = 40.sp
         )
         FloatingActionButton(
-            onClick = {viewModel.add()},
+            onClick = { viewModel.add() },
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(15.dp)
         ) {
             Icon(
                 imageVector = Icons.Default.Add,
-                contentDescription = "",
+                contentDescription = null,
                 tint = Color.Blue
             )
         }

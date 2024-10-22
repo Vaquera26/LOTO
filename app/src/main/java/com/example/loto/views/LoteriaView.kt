@@ -23,25 +23,28 @@ import androidx.compose.ui.unit.sp
 import com.example.loto.viewModels.LoteriaViewModel
 
 @Composable
-fun Loteriaview(viewModels:LoteriaViewModel){
+fun Loteriaview(viewModels: LoteriaViewModel) {
     val lottonNumbers = viewModels.lotoNumbers.value
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        if(lottonNumbers.isEmpty()){
-            Text(text = "Loteria", fontSize = 40.sp,
+        if (lottonNumbers.isEmpty()) {
+            Text(
+                text = "Loteria",
+                fontSize = 40.sp,
                 fontWeight = FontWeight.Bold
             )
-        }else{
+        } else {
             LotteryNumbers(lottonNumbers)
-
         }
-        Button(onClick = {viewModels.generateLotoNumbers()})
-        {
-            Text(text = "Generar", fontSize = 20.sp,
-                fontWeight = FontWeight.Bold)
+        Button(onClick = { viewModels.generateLotoNumbers() }) {
+            Text(
+                text = "Generar",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold
+            )
         }
     }
 }
@@ -49,19 +52,16 @@ fun Loteriaview(viewModels:LoteriaViewModel){
 @Composable
 fun LotteryNumbers(lottonNumbers: List<Int>) {
     LazyRow(
-        contentPadding = PaddingValues(
-            horizontal = 16.dp,
-            vertical = 8.dp
-        )
+        contentPadding = PaddingValues(16.dp, 8.dp)
     ) {
-        items(lottonNumbers){ number ->
+        items(lottonNumbers) { number ->
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
                     .padding(horizontal = 8.dp)
                     .size(35.dp)
                     .background(Color.Red, CircleShape)
-            ){
+            ) {
                 Text(
                     text = number.toString(),
                     color = Color.White,
@@ -69,6 +69,5 @@ fun LotteryNumbers(lottonNumbers: List<Int>) {
                 )
             }
         }
-
     }
 }
